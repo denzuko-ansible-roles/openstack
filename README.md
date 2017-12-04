@@ -1,4 +1,4 @@
-# Openstack [![Open in Cloud9](https://img.shields.io/badge/Open%20in-Cloud9-blue.svg?style=flat-square)](https://c9.io/auth/github?r=https%3A%2F%2Fc9.io%2Fopen%2F%3Fclone_url%3Dhttps%253A%252F%252Fgithub.com%252Fdenzuko-ansible-roles%252Fopenstack.git) [![Analytics](https://ga-beacon.appspot.com/UA-110571074-1/denzuko/ansible-roles/openstack?flat)](https://github.com/denzuko-ansible-roles/openstack) [![CiCD](https://img.shields.io/travis/denzuko-ansible-roles/openstack.svg?style=flat-square)](https://travis-ci.org/denzuko-ansible-roles/)
+# Openstack [![Open in Cloud9](https://img.shields.io/badge/Open%20in-Cloud9-blue.svg?style=flat-square)](https://c9.io/auth/github?r=https%3A%2F%2Fc9.io%2Fopen%2F%3Fclone_url%3Dhttps%253A%252F%252Fgithub.com%252Fdenzuko-ansible-roles%252Fopenstack.git) [![Analytics](https://ga-beacon.appspot.com/UA-110571074-1/denzuko/ansible-roles/openstack?flat)](https://github.com/denzuko-ansible-roles/openstack) [![CiCD](https://img.shields.io/travis/denzuko-ansible-roles/openstack.svg?style=flat-square)](https://travis-ci.org/denzuko-ansible-roles/openstack)
 
 Installs latest version of openstack
 
