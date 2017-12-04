@@ -1,0 +1,15 @@
+# Sample ``local.conf`` for user-configurable variables in ``stack.sh``
+[[local|localrc]]
+ADMIN_PASSWORD="{{admin_secret}}"
+DATABASE_PASSWORD="{{database_secret}}"
+RABBIT_PASSWORD="{{broker_secret}}"
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+FLOATING_RANGE={{config.floating_range}}
+FIX_NETWORK_SIZE={{config.fix_network_size}}
+FIX_RANGE={{config.fix_range}}
+FLAT_INTERFACE={{config.flat_interface}}
+LOGFILE=$DEST/logs/stack.sh.log
+LOGDAYS={{config.log_days|default("2")}}
+SWIFT_HASH={{ ansible_date_time|hash('sha1') }}
+SWIFT_REPLICAS={{swift_replicas|default('1') }}
+SWIFT_DATA_DIR=$DEST/data

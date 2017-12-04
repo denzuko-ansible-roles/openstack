@@ -1,18 +1,41 @@
 ---
-- when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+- when: ansible_distribution in ['Debian', 'Ubuntu'] 
   import_tasks: apt.yml
 
-- when: ansible_distribution == 'CentOS' or ansible_distribution == 'RedHat'
+- when: ansible_distribution in ['RedHat','CentOS'] 
   import_tasks: rpm.yml
 
-- when: ansible_distribution == 'Alpine'
-  import_tasks: apk.yml
-  
-- name: Sync configuration
-  copy: force=yes backup=no src=torrc dest=/etc/tor/torrc
+- name: Make sure we have a 'wheel' group
+  group:
+    name: wheel
+    state: present
 
-- name: Start tor service
-  service: name=tor state=started
+- name: Allow 'wheel' group to have passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
 
-- name: Display hidden service name
-  debug: "Node address: {{ lookup('file', '/var/lib/tor/hidden_service/hostname') }}"
+- name: Add stack user
+  user:
+    name: stack
+    shell: /bin/bash
+    groups: wheel
+    home: /opt/stack
+    createhome: yes
+    append: yes
+
+- name: Acquire DevStack
+  git:
+    repo: https://git.openstack.org/openstack-dev/devstack
+    dest: /opt/devstack
+    
+- name: Configure Node
+  template:
+    src: local.conf.j2
+    dest: /opt/devstack/local.conf
+    owner: bin
+    group: wheel
+    mode: "u=rw,g=r,o=r"
