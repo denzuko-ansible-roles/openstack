@@ -39,3 +39,15 @@
     owner: bin
     group: wheel
     mode: "u=rw,g=r,o=r"
+    
+- name: Prep Installer Script
+  file:
+    path: /opt/devstack/stack.sh
+    state: touch
+    mode: "u=rwx,g=rx,o=rx"
+
+- name: Execute Installer Script
+  command: "./stack.sh"
+  args:
+    chdir: /opt/devstack/
+    warn: no
