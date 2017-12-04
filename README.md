@@ -22,12 +22,12 @@ on config values passed along via a dictionary named `config`.
 
 ## Configuration
 
-| Name | Description | Schema | Defaults |
-| ==== | =========== | ====== |
-| floating_range | Available IP Pool for public access | CIDR | Interactive prompt |
+| Name | Description  | Schema  |Defaults |
+|---|---|---|---|
+| floating_range| Available IP Pool for public access | CIDR | Interactive prompt |
 | fix_range | Internal IP Pool for virtual machines | CIDR | Interactive prompt |
 | fix_network_size | Number of ip addresses | INT | Interactive prompt |
-| flat_interface | Main networking inteface | STR | Interactive prompt |
+| flat_interface | Main networking interface | STR | Interactive prompt |
 | admin_secret | Administrator's password | STR | Interactive prompt |
 | service_secret | Web Service password | STR | Same as admin_secret |
 | broker_secret | Rabbit user's password | STR | Interactive prompt |
