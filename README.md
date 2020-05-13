@@ -5,6 +5,15 @@ Installs latest version of openstack
 ## Installation
 $ ``` ansible-galaxy install denzuko-ansible-roles.openstack ```
 
+## Usage
+```
+---
+- hosts: linux-cloud
+  roles:
+    - denzuko-ansible-roles.openstack
+...
+```
+
 ## Requirements
 * `ansible=>2.2`
 * `Linux server`
